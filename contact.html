@@ -718,11 +718,18 @@
 </script>
 
 <script>
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
+document.getElementById("contactForm").addEventListener("submit", async function(e){
 
-  e.preventDefault();
+    e.preventDefault();
 
-  const data = {
+    const submitBtn = document.querySelector(".btn-submit");
+
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Submitting...";
+
+    const form = e.target;
+
+    const data = {
     full_name: document.querySelector('[name="Full Name"]').value,
     business_name: document.querySelector('[name="Business Name"]').value,
     email: document.querySelector('[name="Email"]').value,
@@ -735,31 +742,38 @@ document.getElementById("contactForm").addEventListener("submit", async function
     goal: document.querySelector('[name="Primary Goal"]').value,
     challenge: document.querySelector('[name="Biggest Business Challenge"]').value,
     tools: document.querySelector('[name="Current Tools Used"]').value
-  };
+};
 
-  try {
+console.log(data); // <-- YAHAN ADD KARO
+
+try {
 
     await fetch(
-      "https://script.google.com/macros/s/AKfycbyTqUQUb7Mq3z7eY5yUWOEWW0c17pDxLXDwxK_3n5Y6dNnguWyVcVIZ1iAxAZziUmiD5A/exec",
-      {
-        method: "POST",
-        mode: "no-cors",
-        body: JSON.stringify(data)
-      }
+        "https://script.google.com/macros/s/AKfycbyTqUQUb7Mq3z7eY5yUWOEWW0c17pDxLXDwxK_3n5Y6dNnguWyVcVIZ1iAxAZziUmiD5A/exec",
+        {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify(data)
+        }
     );
+        alert("✅ Lead Submitted Successfully");
 
-    alert("Lead Submitted Successfully!");
-    document.getElementById("contactForm").reset();
+        form.reset();
 
-  } catch(error) {
+    } catch(err) {
 
-    console.error(error);
-    alert("Something went wrong!");
+        console.error(err);
 
-  }
+        alert("❌ Error");
+
+    } finally {
+
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Book My Free Audit";
+
+    }
 
 });
-
 </script>
 
   <script src="/js/script.js"></script>
