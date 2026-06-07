@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Revenue Systems — OUTPERO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets\css\style.css" />
+  <style>
+    .rs-hero {
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 72px;
+      background: radial-gradient(ellipse 70% 60% at 50% 30%, rgba(30, 30, 80, 0.55) 0%, transparent 70%), var(--bg);
+    }
+
+    .rs-hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 80px 32px;
+    }
+
+    .rs-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .rs-hero-eyebrow::before,
+    .rs-hero-eyebrow::after {
+      content: '—';
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .rs-hero-heading {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 24px;
+    }
+
+    .rs-hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 40px;
+    }
+
+    .rs-hero-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .toggle-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+
+    .pricing-toggle {
+      display: inline-flex;
+      align-items: center;
+      background: #0e0e18;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px;
+    }
+
+    .toggle-btn {
+      padding: 10px 28px;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      font-family: var(--font);
+      transition: all 0.25s;
+      color: var(--muted);
+      background: transparent;
+    }
+
+    .toggle-btn.active {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.35);
+    }
+
+    .rs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .sys-price-big {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin: 16px 0 20px;
+    }
+
+    .sys-get-started {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: var(--font);
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      transition: all 0.25s;
+      margin-bottom: 24px;
+    }
+
+    .sys-get-started:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .sys-get-started.flagship {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      border-color: transparent;
+    }
+
+    .sys-get-started.flagship:hover {
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .sys-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sys-included-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .sys-features-full {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .sys-features-full li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .sys-feat-icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .sys-feat-icon.flagship-icon {
+      color: #a78bfa;
+    }
+
+    .sys-footer-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .sys-scenario-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: var(--font);
+      transition: all 0.2s;
+    }
+
+    .sys-scenario-btn:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .sys-bestfor {
+      font-size: 0.8rem;
+      color: rgba(161, 161, 170, 0.6);
+    }
+
+    .sys-bestfor span {
+      color: var(--muted);
+    }
+
+    .rs-solutions-cta {
+      max-width: 1280px;
+      margin: 48px auto 0;
+      padding: 0 32px;
+    }
+
+    .rs-solutions-cta-inner {
+      background: #0d0d18;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .rs-sol-text h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .rs-sol-text p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      max-width: 480px;
+      line-height: 1.65;
+    }
+
+    .rs-note {
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(161, 161, 170, 0.4);
+      font-style: italic;
+      padding: 24px 32px 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 900px) {
+      .rs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rs-solutions-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .rs-hero-btns {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .sys-price-big {
+        font-size: 2.2rem;
+      }
+
+      .rs-solutions-cta-inner {
+        padding: 32px 24px;
+      }
+
+      .rs-grid {
+        padding: 0 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">nani.tathag<span class="logo-o">at</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="revenue-systems.html" class="nav-link">Revenue Systems</a></li>
+        <li><a href="solutions.html" class="nav-link">Solutions</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+        </button>
+        <a href="contact.html" class="btn-audit-nav">Book Free Audit</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="revenue-systems.html" class="mobile-link">Revenue Systems</a>
+      <a href="solutions.html" class="mobile-link">Solutions</a>
+      <a href="about.html" class="mobile-link">About</a>
+      <a href="contact.html" class="mobile-link">Contact</a>
+    </div>
+  </nav>
+
+  <section class="rs-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="rs-hero-inner">
+      <div class="rs-hero-eyebrow reveal-up">REVENUE SYSTEMS</div>
+      <h1 class="rs-hero-heading reveal-up" style="--delay:0.1s">Deploy. Automate. Scale.</h1>
+      <p class="rs-hero-sub reveal-up" style="--delay:0.2s">Four proven AI systems designed to generate leads, automate
+        operations, increase conversions, and build authority.</p>
+      <div class="rs-hero-btns reveal-up" style="--delay:0.3s">
+        <a href="contact.html" class="btn-primary btn-large">Book Free Audit <span class="btn-arrow">→</span></a>
+        <a href="revenue-systems.html" class="btn-secondary btn-large">View Systems</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="systems" style="padding: 80px 0 40px;">
+    <div class="toggle-wrap reveal-up">
+      <div class="pricing-toggle">
+        <button class="toggle-btn active" id="toggleOne">One-time</button>
+        <button class="toggle-btn" id="toggleMgmt">+ Management</button>
+      </div>
+    </div>
+
+    <div class="rs-grid">
+
+      <div class="system-card reveal-up" style="--delay:0.1s">
+        <div class="system-card-header">
+          <span class="system-badge">SYSTEM 01</span>
+        </div>
+        <h2 class="system-title">Deploy Lead Engine</h2>
+        <p class="system-sub">Capture, qualify, and book leads automatically.</p>
+        <div class="sys-price-big" id="price1">$720</div>
+        <a href="https://wa.me/6303310449?text=Hi%20I%20am%20interested%20in%20Deploy%20Lead%20Engine"
+   target="_blank"
+   class="sys-get-started">
+   Get Started
+</a>
+        <p class="sys-desc">Your leads respond to whoever gets back first. This system ensures you are always first —
+          calling, texting, and qualifying every lead within 60 seconds, 24/7, then booking them straight onto your
+          calendar.</p>
+        <div class="sys-included-label">WHAT'S INCLUDED</div>
+        <ul class="sys-features-full">
+          <li>
+            <span class="sys-feat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </span>
+            AI Voice Agent (24/7)
+          </li>
+          <li>
+            <span class="sys-feat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+            </span>
+            WhatsApp Automation
+          </li>
+          <li>
+            <span class="sys-feat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+            </span>
+            CRM Auto Sync
+          </li>
+          <li>
+            <span class="sys-feat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </span>
+            Lead Qualification System
+          </li>
+          <li>
+            <span class="sys-feat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+            </span>
+            Appointment Booking Engine
+          </li>
+        </ul>
+        <div class="sys-footer-row">
+          <button class="sys-scenario-btn">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <line x1="18" y1="20" x2="18" y2="10" />
+              <line x1="12" y1="20" x2="12" y2="4" />
+              <line x1="6" y1="20" x2="6" y2="14" />
+            </svg>
+            View Example Scenario
+          </button>
+          <p class="sys-bestfor">Best for: <span>Real Estate, Clinics, Service Businesses</span></p>
+        </div>
+      </div>
+
+      <div class="system-card system-card-flagship reveal-up" style="--delay:0.2s">
+        <div class="system-card-header">
+          <span class="system-badge">SYSTEM 02</span>
+          <span class="flagship-badge">FLAGSHIP</span>
+        </div>
+        <h2 class="system-title">Deploy Ops Engine</h2>
+        <p class="system-sub">Eliminate repetitive work and scale operations.</p>
+        <div class="sys-price-big" id="price2">$1,200</div>
+        <a href="https://wa.me/6303310449?text=Hi%20I%20am%20interested%20in%20Deploy%20Ops%20Engine"
+   target="_blank"
+   class="sys-get-started">
+   Get Started
+</a>
+        <p class="sys-desc">We audit your workflows and automate the repetitive tasks like client onboarding, data
+          entry, and CRM updates so your team can focus on high-value work. Save 20–40 hours per week.</p>
+        <div class="sys-included-label">WHAT'S INCLUDED</div>
+        <ul class="sys-features-full">
+          <li>
+            <span class="sys-feat-icon flagship-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+              </svg>
+            </span>
+            Workflow Mapping
+          </li>
+          <li>
+            <span class="sys-feat-icon flagship-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8M12 17v4" />
+              </svg>
+            </span>
+            Business Process Automation
+          </li>
+          <li>
+            <span class="sys-feat-icon flagship-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            </span>
+            Custom n8n/Make Systems
+          </li>
+          <li>
+            <span class="sys-feat-icon flagship-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              </svg>
+            </span>
+            Team Productivity Flows
+          </li>
+          <li>
+            <span class="sys-feat-icon flagship-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+            </span>
+            AI-Powered Operations
+          </li>
+        </ul>
+        <div class="sys-footer-row">
+          <button class="sys-scenario-btn">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <line x1="18" y1="20" x2="18" y2="10" />
+              <line x1="12" y1="20" x2="12" y2="4" />
+              <line x1="6" y1="20" x2="6" y2="14" />
+            </svg>
+            View Example Scenario
+          </button>
+          <p class="sys-bestfor">Best for: <span>Agencies, Legal, B2B Services</span></p>
+        </div>
+      </div>
+
+      <div class="system-card reveal-up" style="--delay:0.3s">
+        <div class="system-card-header">
+          <span class="system-badge">SYSTEM 03</span>
+        </div>
+        <h2 class="system-title">Deploy Conversion Engine</h2>
+        <p class="system-sub">Turn visitors into conversations and customers.</p>
+        <div class="sys-price-big" id="price3">$599</div>
+        <a href="https://wa.me/6303310449?text=Hi%20I%20am%20interested%20in%20Deploy%20Conversion%20Engine"
+   target="_blank"
+   class="sys-get-started">
+   Get Started
+</a>
+        <p class="sys-desc">We replace outdated websites with landing systems built to capture intent. Connect forms
+          directly to WhatsApp and your CRM to drive immediate bookings and conversions.</p>
+        <div class="sys-included-label">WHAT'S INCLUDED</div>
+        <ul class="sys-features-full">
+          <li>
+            <span class="sys-feat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M3 9h18M9 21V9" />
+              </svg>
+            </span>
+            High-Converting Landing Pages
+          </li>
+          <li>
+            <span class="sys-feat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg>
+            </span>
+            Smart Lead Capture Forms
+          </li>
+          <li>
+            <span class="sys-feat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+            </span>
+            WhatsApp Trigger Flows
+          </li>
+          <li>
+            <span class="sys-feat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <polyline points="23 4 23 10 17 10" />
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+              </svg>
+            </span>
+            Follow-Up Automation
+          </li>
+          <li>
+            <span class="sys-feat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+            </span>
+            Conversion Tracking
+          </li>
+        </ul>
+        <div class="sys-footer-row">
+          <button class="sys-scenario-btn">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <line x1="18" y1="20" x2="18" y2="10" />
+              <line x1="12" y1="20" x2="12" y2="4" />
+              <line x1="6" y1="20" x2="6" y2="14" />
+            </svg>
+            View Example Scenario
+          </button>
+          <p class="sys-bestfor">Best for: <span>Outdated sites, Low-conversion pages</span></p>
+        </div>
+      </div>
+
+      <div class="system-card reveal-up" style="--delay:0.4s">
+        <div class="system-card-header">
+          <span class="system-badge">SYSTEM 04</span>
+        </div>
+        <h2 class="system-title">Deploy Content Engine</h2>
+        <p class="system-sub">Build authority and generate inbound leads with AI.</p>
+        <div class="sys-price-big" id="price4">$499</div>
+        <a href="https://wa.me/6303310449?text=Hi%20I%20am%20interested%20in%20Deploy%20Content%20Engine"
+   target="_blank"
+   class="sys-get-started">
+   Get Started
+</a>
+        <p class="sys-desc">Establish yourself as an industry authority. This system automates content creation,
+          distribution, and engagement across LinkedIn and other platforms to generate consistent inbound leads.</p>
+        <div class="sys-included-label">WHAT'S INCLUDED</div>
+        <ul class="sys-features-full">
+          <li>
+            <span class="sys-feat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </span>
+            LinkedIn Content Automation
+          </li>
+          <li>
+            <span class="sys-feat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </span>
+            AI Content Research
+          </li>
+          <li>
+            <span class="sys-feat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+            </span>
+            Personal Brand System
+          </li>
+          <li>
+            <span class="sys-feat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="18" cy="5" r="3" />
+                <circle cx="6" cy="12" r="3" />
+                <circle cx="18" cy="19" r="3" />
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+              </svg>
+            </span>
+            Multi-Platform Repurposing
+          </li>
+          <li>
+            <span class="sys-feat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+            </span>
+            Engagement Automation
+          </li>
+        </ul>
+        <div class="sys-footer-row">
+          <button class="sys-scenario-btn">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <line x1="18" y1="20" x2="18" y2="10" />
+              <line x1="12" y1="20" x2="12" y2="4" />
+              <line x1="6" y1="20" x2="6" y2="14" />
+            </svg>
+            View Example Scenario
+          </button>
+          <p class="sys-bestfor">Best for: <span>Founders, Personal brands, B2B</span></p>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="rs-note">All fees cover build and more — platform tools, hosting, and third-party billed separately at
+      cost. Full estimate provided before any project starts.</p>
+
+    <div class="rs-solutions-cta reveal-up" style="margin-top:60px;">
+      <div class="rs-solutions-cta-inner">
+        <div class="rs-sol-text">
+          <h3>Not ready for a full system?</h3>
+          <p>Don't wait to fix what hurts most. Explore our library of 19 standalone solutions designed to solve
+            specific bottlenecks instantly.</p>
+        </div>
+        <a href="solutions.html" class="btn-secondary" style="white-space:nowrap;flex-shrink:0;">Explore 19
+          Solutions</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact" style="margin-top:80px;">
+    <div class="cta-orb"></div>
+    <div class="section-container cta-inner reveal-up">
+      <h2 class="cta-heading">
+        Your revenue leak has a fix.<br>
+        Let's find it.
+      </h2>
+      <p class="cta-sub">Book a free 30-minute strategy call. We'll show you exactly where you can automate tasks and
+        capture more revenue.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-cta-primary">Book Free Audit <span>→</span></a>
+        <a href="solutions.html" class="btn-cta-secondary">Explore the Solutions <span>→</span></a>
+      </div>
+      <p class="cta-note">No obligation. No pitch. Just clarity.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">nani.tathagat</div>
+        <p class="footer-tagline">Deploy AI.<br>Automate Growth.<br>Scale Businesses.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-label">EXPLORE</div>
+        <a href="index.html">Home</a>
+        <a href="revenue-systems.html">Revenue Systems</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-connect">
+        <div class="footer-nav-label">CONNECT</div>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/nani-tathagat-158829404/" class="social-btn" aria-label="LinkedIn">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/nanl.tathagat" class="social-btn" aria-label="Instagram">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <a href="mailto:hello@nanitathagat.com" class="social-btn" aria-label="Email">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </a>
+        </div>
+        <p class="footer-email">
+          ✉️ #
+        </p>
+
+        <p class="footer-phone">
+          <a href="tel:+918885607601">
+            📞 +91 8885607601
+          </a>
+        </p>
+
+        <a href="https://wa.me/6303310449" target="_blank" class="footer-whatsapp">
+          💬 Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Nani Tathagat. All rights reserved.</p>
+      <p class="footer-bottom-right">DEPLOY · AUTOMATE · SCALE</p>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+
+    window.addEventListener('load', () => {
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.4s ease';
+      requestAnimationFrame(() => requestAnimationFrame(() => { document.body.style.opacity = '1'; }));
+      setTimeout(() => {
+        document.querySelectorAll('.rs-hero .reveal-up').forEach(el => el.classList.add('revealed'));
+      }, 300);
+    });
+
+    const prices = {
+      one: ['$720', '$1,200', '$599', '$499'],
+      mgmt: ['$960/mo', '$1,680/mo', '$799/mo', '$699/mo']
+    };
+    const toggleOne = document.getElementById('toggleOne');
+    const toggleMgmt = document.getElementById('toggleMgmt');
+    const priceEls = [
+      document.getElementById('price1'),
+      document.getElementById('price2'),
+      document.getElementById('price3'),
+      document.getElementById('price4')
+    ];
+
+    function setMode(mode) {
+      const vals = mode === 'one' ? prices.one : prices.mgmt;
+      priceEls.forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(6px)';
+        setTimeout(() => {
+          el.textContent = vals[i];
+          el.style.transition = 'opacity 0.25s, transform 0.25s';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, 150);
+      });
+      toggleOne.classList.toggle('active', mode === 'one');
+      toggleMgmt.classList.toggle('active', mode === 'mgmt');
+    }
+
+    toggleOne.addEventListener('click', () => setMode('one'));
+    toggleMgmt.addEventListener('click', () => setMode('mgmt'));
+  </script>
+  <!-- <script src="/js/script.js"></script> -->
+  <script src="/js/animations.js"></script>
+  
+</body>
+
+</html>

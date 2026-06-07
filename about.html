@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — nani.tathagat</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+.founder-grid{display:grid;grid-template-columns:1fr 400px;gap:80px;align-items:start;margin-top:60px;}
+.founder-story p{font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:20px;}
+.founder-story .tagline-statement{font-size:1.5rem;font-weight:900;color:var(--accent);letter-spacing:-0.02em;margin-top:32px;line-height:1.3;}
+.founder-card{background:var(--bg-card2);border:1px solid rgba(59,130,246,0.2);border-radius:20px;overflow:hidden;transition:all 0.3s;box-shadow:0 0 40px rgba(59,130,246,0.06);}
+.founder-card:hover{border-color:rgba(59,130,246,0.4);box-shadow:0 0 60px rgba(59,130,246,0.12),0 20px 50px rgba(0,0,0,0.5);}
+.founder-img-wrap{width:100%;aspect-ratio:1/1;background:linear-gradient(135deg,#0d1629 0%,#0a0a20 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.founder-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#0f1f3d,#070710);position:relative;}
+.founder-img-placeholder::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 70%,rgba(59,130,246,0.15) 0%,transparent 70%);}
+.founder-img-placeholder svg{opacity:0.15;color:var(--accent);}
+.founder-card-body{padding:24px;}
+.founder-role{font-size:0.7rem;font-weight:700;letter-spacing:0.18em;color:var(--accent);margin-bottom:8px;}
+.founder-name{font-size:1.35rem;font-weight:900;margin-bottom:10px;letter-spacing:-0.02em;}
+.founder-bio{font-size:0.875rem;color:var(--muted);line-height:1.65;margin-bottom:18px;}
+.founder-socials{display:flex;gap:10px;}
+.philosophy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.philosophy-card{background:var(--bg-card2);border:1px solid var(--border);border-radius:16px;padding:32px;transition:all 0.3s;}
+.philosophy-card:hover{border-color:var(--border-blue);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.4),0 0 30px var(--glow);}
+.phil-icon{width:52px;height:52px;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.18);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:20px;}
+.phil-title{font-size:1.15rem;font-weight:800;margin-bottom:12px;letter-spacing:-0.01em;}
+.phil-text{font-size:0.875rem;color:var(--muted);line-height:1.7;}
+.build-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.build-card{background:var(--bg-card2);border:1px solid var(--border);border-radius:16px;padding:32px;transition:all 0.3s;}
+.build-card:hover{border-color:var(--border-blue);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.4);}
+.build-title{font-size:1.15rem;font-weight:800;margin-bottom:14px;letter-spacing:-0.01em;}
+.build-text{font-size:0.875rem;color:var(--muted);line-height:1.7;}
+.industries-wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:40px;}
+.industry-pill{padding:12px 26px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:100px;font-size:0.9rem;font-weight:600;color:var(--muted);transition:all 0.2s;}
+.industry-pill:hover{border-color:var(--border-blue);color:#fff;background:rgba(59,130,246,0.08);}
+@media(max-width:900px){.founder-grid{grid-template-columns:1fr;gap:40px;}.philosophy-grid,.build-grid{grid-template-columns:1fr;}}
+@media(max-width:600px){.philosophy-grid,.build-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">nani.tathag<span class="logo-o">at</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="revenue-systems.html" class="nav-link">Revenue Systems</a></li>
+        <li><a href="solutions.html" class="nav-link">Solutions</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <!-- <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+        </button> -->
+        <a href="contact.html" class="btn-audit-nav">Book Free Audit</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="revenue-systems.html" class="mobile-link">Revenue Systems</a>
+      <a href="solutions.html" class="mobile-link">Solutions</a>
+      <a href="about.html" class="mobile-link">About</a>
+      <a href="contact.html" class="mobile-link">Contact</a>
+    </div>
+  </nav>
+
+<section class="hero" style="min-height:65vh;">
+  <div class="hero-grid-bg"></div>
+  <div class="floating-orb orb1"></div>
+  <div class="floating-orb orb2"></div>
+  <div class="floating-orb orb3"></div>
+  <div class="hero-container" style="grid-template-columns:1fr;text-align:center;padding:100px 32px 80px;">
+    <div>
+      <p class="section-eyebrow reveal-up" style="--delay:0s;">— ABOUT —</p>
+      <h1 class="hero-heading reveal-up" style="--delay:0.1s;text-align:center;max-width:860px;margin:0 auto 20px;">
+        We understand business first.<br><span class="gradient-text">Technology second.</span>
+      </h1>
+      <p class="hero-sub reveal-up" style="--delay:0.2s;text-align:center;max-width:560px;margin:0 auto;">
+        Every successful automation starts with understanding the business behind it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="problem-section">
+  <div class="section-container">
+    <p class="section-eyebrow reveal-up" style="--delay:0s;">— THE NANI TATHAGAT STORY —</p>
+    <div class="founder-grid">
+      <div class="founder-story reveal-left" style="--delay:0.1s;">
+        <p>Nani Tathagat started with a simple belief: businesses don't need more tools — they need better systems.</p>
+        <p>Too many businesses invest in software, agencies, and subscriptions, yet still struggle with missed leads, manual work, and inconsistent growth. Technology alone isn't the answer. The right system is.</p>
+        <p><strong style="color:#fff;">That's why we build differently.</strong></p>
+        <p>Every project begins with understanding the business itself — its goals, bottlenecks, customer journey, and growth opportunities. From there, we deploy automation, AI systems, and revenue engines that create measurable outcomes.</p>
+        <p>No unnecessary complexity. No bloated tech stacks. No chasing trends. Just intelligent systems that generate leads, automate operations, and help businesses scale with confidence.</p>
+        <p style="margin-bottom:8px;">Today, our mission remains simple:</p>
+        <p class="tagline-statement">Deploy AI. Automate Growth. Scale Businesses.</p>
+      </div>
+      <div class="reveal-right" style="--delay:0.2s;">
+        <div class="founder-card">
+
+          <div class="founder-img-wrap" style="height:300px;">
+  <img 
+    src="assets/images/founder.png" 
+    alt="Nani Tathagat — Founder" 
+    style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;"
+  />
+</div>
+          <div class="founder-card-body">
+            <p class="founder-role">FOUNDER</p>
+            <h3 class="founder-name">Nani Tathagat</h3>
+            <p class="founder-bio">Building outcome-first systems for businesses that refuse to leak revenue.</p>
+            <div class="founder-socials">
+              <a href="https://www.linkedin.com/in/nani-tathagat-158829404/" class="social-btn" aria-label="LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="https://www.instagram.com/nanl.tathagat" class="social-btn" aria-label="Instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="systems-section">
+  <div class="section-container">
+    <p class="section-eyebrow reveal-up" style="--delay:0s;">— OUR PHILOSOPHY —</p>
+    <div class="philosophy-grid">
+      <div class="philosophy-card reveal-up" style="--delay:0.1s;">
+        <div class="phil-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3 class="phil-title">Outcome-first</h3>
+        <p class="phil-text">Every system we build is measured by one thing: the result it creates for your business.</p>
+      </div>
+      <div class="philosophy-card reveal-up" style="--delay:0.2s;">
+        <div class="phil-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3 class="phil-title">Business audit always</h3>
+        <p class="phil-text">We understand workflows, bottlenecks, and opportunities before writing a single line of code.</p>
+      </div>
+      <div class="philosophy-card reveal-up" style="--delay:0.3s;">
+        <div class="phil-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3 class="phil-title">ROI tracked</h3>
+        <p class="phil-text">Time saved. Revenue captured. Costs reduced. We measure what actually moves your business forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="solutions-section">
+  <div class="section-container">
+    <p class="section-eyebrow reveal-up" style="--delay:0s;">— WHAT WE BUILD —</p>
+    <div class="build-grid">
+      <div class="build-card reveal-up" style="--delay:0.1s;">
+        <div class="card-icon" style="margin-bottom:20px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="build-title">Revenue Capture System</h3>
+        <p class="build-text">Instant lead response, qualification, and booking automation. Never lose a prospect to a slow follow-up again.</p>
+      </div>
+      <div class="build-card reveal-up" style="--delay:0.2s;">
+        <div class="card-icon" style="margin-bottom:20px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3 class="build-title">Operations Efficiency System</h3>
+        <p class="build-text">Automated workflows that save hours every week. Connect your tools and eliminate manual data entry permanently.</p>
+      </div>
+      <div class="build-card reveal-up" style="--delay:0.3s;">
+        <div class="card-icon" style="margin-bottom:20px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <h3 class="build-title">Digital Salesman</h3>
+        <p class="build-text">High-converting websites connected directly to automated pipelines. Your site works 24/7 to capture and qualify leads.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="section-container">
+    <p class="section-eyebrow reveal-up" style="--delay:0s;">— INDUSTRIES WE WORK WITH —</p>
+    <div class="industries-wrap">
+      <span class="industry-pill reveal-up" style="--delay:0.05s;">Real Estate</span>
+      <span class="industry-pill reveal-up" style="--delay:0.1s;">Clinics</span>
+      <span class="industry-pill reveal-up" style="--delay:0.15s;">Coaching</span>
+      <span class="industry-pill reveal-up" style="--delay:0.2s;">D2C</span>
+      <span class="industry-pill reveal-up" style="--delay:0.25s;">Legal</span>
+      <span class="industry-pill reveal-up" style="--delay:0.3s;">SaaS</span>
+      <span class="industry-pill reveal-up" style="--delay:0.35s;">E-commerce</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-orb"></div>
+  <div class="section-container">
+    <div class="cta-inner">
+      <h2 class="cta-heading reveal-up" style="--delay:0s;">Your revenue leak has a fix.<br>Let's find it.</h2>
+      <p class="cta-sub reveal-up" style="--delay:0.1s;">Book a free 30-minute strategy call. We'll show you exactly where automation can save time, capture leads, and scale revenue.</p>
+      <div class="cta-btns reveal-up" style="--delay:0.2s;">
+        <a href="contact.html" class="btn-cta-primary">Book Free Audit <span class="btn-arrow">→</span></a>
+        <a href="solutions.html" class="btn-cta-secondary">Explore Solutions <span class="btn-arrow">→</span></a>
+      </div>
+      <p class="cta-note reveal-up" style="--delay:0.3s;">No obligation. No pitch. Just clarity.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <p class="footer-logo">nani.tathagat</p>
+      <p class="footer-tagline">Deploy AI.<br>Automate Growth.<br>Scale Businesses.</p>
+    </div>
+    <div>
+      <p class="footer-nav-label">EXPLORE</p>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="revenue-systems.html">Revenue Systems</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-connect">
+        <div class="footer-nav-label">CONNECT</div>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/nani-tathagat-158829404/" class="social-btn" aria-label="LinkedIn">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/nanl.tathagat" class="social-btn" aria-label="Instagram">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <a href="mailto:hello@nanitathagat.com" class="social-btn" aria-label="Email">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </a>
+        </div>
+        <p class="footer-email">
+          ✉️ #
+        </p>
+
+        <p class="footer-phone">
+          <a href="tel:+918885607601">
+            📞 +91 8885607601
+          </a>
+        </p>
+
+        <a href="https://wa.me/6303310449" target="_blank" class="footer-whatsapp">
+          💬 Chat on WhatsApp
+        </a>
+      </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Nani Tathagat. All rights reserved.</p>
+    <p class="footer-bottom-right">NANI.TATHAGAT</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const navbar=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>20);});
+
+  const hamburger=document.getElementById('hamburger');
+  const mobileMenu=document.getElementById('mobileMenu');
+  hamburger.addEventListener('click',()=>{mobileMenu.classList.toggle('open');});
+
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('revealed');});
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right').forEach(el=>observer.observe(el));
+})();
+</script>
+<script src="/js/script.js"></script>
+  <script src="/js/animations.js"></script>
+
+</body>
+</html>
