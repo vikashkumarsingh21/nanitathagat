@@ -401,11 +401,7 @@
       <div class="reveal-right" style="--delay:0.1s;">
         <div class="form-card">
           <h2 class="form-title">Business Audit Request</h2>
-          <form id="contactForm" action="https://formsubmit.co/vikas.kumar129118@marwadiuniversity.ac.in" method="POST">
-            <input type="hidden" name="_subject" value="🚀 New Business Audit Lead">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://google.com">
+          <form id="contactForm">
             <div class="form-group">
               <label class="form-label">Full Name <span>*</span></label>
               <input type="text" name="Full Name" class="form-input" placeholder="Your full name" required>
@@ -688,27 +684,84 @@
   </footer>
 
   <script>
-    (function () {
-      const navbar = document.getElementById('navbar');
-      window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 20); });
+(function () {
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
 
-      const hamburger = document.getElementById('hamburger');
-      const mobileMenu = document.getElementById('mobileMenu');
-      hamburger.addEventListener('click', () => { mobileMenu.classList.toggle('open'); });
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right').forEach(el => observer.observe(el));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('revealed');
+    });
+  }, { threshold: 0.1 });
 
-      window.toggleFaq = function (btn) {
-        const item = btn.closest('.faq-item');
-        const isOpen = item.classList.contains('active');
-        document.querySelectorAll('.faq-item.active').forEach(i => i.classList.remove('active'));
-        if (!isOpen) item.classList.add('active');
-      };
-    })();
-  </script>
+  document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right')
+    .forEach(el => observer.observe(el));
+
+  window.toggleFaq = function (btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('active');
+
+    document.querySelectorAll('.faq-item.active')
+      .forEach(i => i.classList.remove('active'));
+
+    if (!isOpen) item.classList.add('active');
+  };
+})();
+</script>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+
+  e.preventDefault();
+
+  const data = {
+    full_name: document.querySelector('[name="Full Name"]').value,
+    business_name: document.querySelector('[name="Business Name"]').value,
+    email: document.querySelector('[name="Email"]').value,
+    phone: document.querySelector('[name="Phone Number"]').value,
+    whatsapp: document.querySelector('[name="WhatsApp Number"]').value,
+    website: document.querySelector('[name="Website URL"]').value,
+    business_type: document.querySelector('[name="Business Type"]').value,
+    business_size: document.querySelector('[name="Business Size"]').value,
+    revenue: document.querySelector('[name="Monthly Revenue"]').value,
+    goal: document.querySelector('[name="Primary Goal"]').value,
+    challenge: document.querySelector('[name="Biggest Business Challenge"]').value,
+    tools: document.querySelector('[name="Current Tools Used"]').value
+  };
+
+  try {
+
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbyTqUQUb7Mq3z7eY5yUWOEWW0c17pDxLXDwxK_3n5Y6dNnguWyVcVIZ1iAxAZziUmiD5A/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify(data)
+      }
+    );
+
+    alert("Lead Submitted Successfully!");
+    document.getElementById("contactForm").reset();
+
+  } catch(error) {
+
+    console.error(error);
+    alert("Something went wrong!");
+
+  }
+
+});
+
+</script>
+
   <script src="/js/script.js"></script>
   <script src="/js/animations.js"></script>
 
