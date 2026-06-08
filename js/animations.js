@@ -363,9 +363,9 @@ if (osCanvas) osCanvas.style.transform = `translate(${currentX * 5}px, ${current
     if (!hamburger || !mobileMenu) return;
 
     hamburger.addEventListener("click", () => {
-      mobileMenu.classList.toggle("open");
-    });
-
+    mobileMenu.classList.toggle("open");
+    document.body.classList.toggle("menu-open");
+});
     document.querySelectorAll(".mobile-link").forEach((link) => {
       link.addEventListener("click", () => mobileMenu.classList.remove("open"));
     });
