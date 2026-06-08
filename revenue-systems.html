@@ -7,7 +7,9 @@
   <title>Revenue Systems — OUTPERO</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="assets\css\style.css" />
   <style>
     .rs-hero {
@@ -306,6 +308,69 @@
         padding: 0 16px;
       }
     }
+
+    /* ===== SCENARIO BOX ===== */
+
+    .scenario-box {
+      display: none;
+      width: 100%;
+      margin-top: 20px;
+      padding: 24px;
+
+      background: #0d0d18;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 14px;
+    }
+
+    .scenario-box.active {
+      display: block;
+    }
+
+    .scenario-box h4 {
+      color: #fff;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .scenario-box p {
+      color: #a1a1aa;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .scenario-box strong {
+      color: #8b5cf6;
+    }
+
+    .scenario-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .scenario-metrics div {
+      background: #08080f;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 10px;
+      padding: 15px;
+    }
+
+    .scenario-metrics span {
+      display: block;
+      color: #8b8b9e;
+      margin-bottom: 8px;
+    }
+
+    .scenario-metrics strong {
+      color: #fff;
+    }
+
+    @media(max-width:768px) {
+      .scenario-metrics {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -360,357 +425,456 @@
   </section>
 
   <section id="systems" style="padding: 80px 0 40px;">
-    <div class="toggle-wrap reveal-up">
-      <div class="pricing-toggle">
-        <button class="toggle-btn active" id="toggleOne">One-time</button>
-        <button class="toggle-btn" id="toggleMgmt">+ Management</button>
+  <div class="toggle-wrap reveal-up">
+    <div class="pricing-toggle">
+      <button class="toggle-btn active" id="toggleOne">One-time</button>
+      <button class="toggle-btn" id="toggleMgmt">+ Management</button>
+    </div>
+  </div>
+
+  <div class="rs-grid">
+
+    <div class="system-card reveal-up" style="--delay:0.1s">
+      <div class="system-card-header">
+        <span class="system-badge">SYSTEM 01</span>
+      </div>
+      <h2 class="system-title">Deploy Lead Engine</h2>
+      <p class="system-sub">Capture, qualify, and book leads automatically.</p>
+      <div class="sys-price-big" id="price1">$720</div>
+      <a href="https://wa.me/6303310449?text=Hi%20I%20am%20interested%20in%20Deploy%20Lead%20Engine" target="_blank" class="sys-get-started">
+        Get Started
+      </a>
+      <p class="sys-desc">Your leads respond to whoever gets back first. This system ensures you are always first — calling, texting, and qualifying every lead within 60 seconds, 24/7, then booking them straight onto your calendar.</p>
+      <div class="sys-included-label">WHAT'S INCLUDED</div>
+      <ul class="sys-features-full">
+        <li>
+          <span class="sys-feat-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </span>
+          AI Voice Agent (24/7)
+        </li>
+        <li>
+          <span class="sys-feat-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </span>
+          WhatsApp Automation
+        </li>
+        <li>
+          <span class="sys-feat-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </span>
+          CRM Auto Sync
+        </li>
+        <li>
+          <span class="sys-feat-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </span>
+          Lead Qualification System
+        </li>
+        <li>
+          <span class="sys-feat-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+          </span>
+          Appointment Booking Engine
+        </li>
+      </ul>
+      <div class="sys-footer-row">
+        <button class="sys-scenario-btn" onclick="toggleScenario('scenario1', this)">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <line x1="18" y1="20" x2="18" y2="10" />
+            <line x1="12" y1="20" x2="12" y2="4" />
+            <line x1="6" y1="20" x2="6" y2="14" />
+          </svg>
+          View Example Scenario
+        </button>
+        <p class="sys-bestfor">Best for: <span>Real Estate, Clinics, Service Businesses</span></p>
+      </div>
+      <div id="scenario1" class="scenario-box">
+        <h4>Example Scenario: Multi-Location Dental Clinic</h4>
+        <p>
+          <strong>The Leak:</strong><br>
+          A dental clinic generates 500+ leads monthly from Meta Ads, but front-desk staff takes 3–4 hours to respond. Nearly 65% of high-intent leads never book appointments — revenue lost to response time, not demand.
+        </p>
+        <p>
+          <strong>The Fix:</strong><br>
+          Deploy an AI Voice Agent and WhatsApp Automation. Every lead is contacted within 60 seconds, qualified automatically, and booked directly into the clinic calendar without any manual intervention.
+        </p>
+        <p>
+          <strong>Business Impact:</strong><br>
+          Appointment volume nearly triples, front-desk workload drops significantly, and monthly revenue recovers from leads that previously went cold within hours of enquiry.
+        </p>
+        <div class="scenario-metrics">
+          <div>
+            <span>Before AI</span>
+            <strong>75 Consults</strong>
+          </div>
+          <div>
+            <span>After AI</span>
+            <strong>210 Consults</strong>
+          </div>
+          <div>
+            <span>Revenue Recovered</span>
+            <strong>₹13.5L/mo</strong>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="rs-grid">
-
-      <div class="system-card reveal-up" style="--delay:0.1s">
-        <div class="system-card-header">
-          <span class="system-badge">SYSTEM 01</span>
-        </div>
-        <h2 class="system-title">Deploy Lead Engine</h2>
-        <p class="system-sub">Capture, qualify, and book leads automatically.</p>
-        <div class="sys-price-big" id="price1">$720</div>
-        <a href="https://wa.me/6303310449?text=Hi%20I%20am%20interested%20in%20Deploy%20Lead%20Engine"
-   target="_blank"
-   class="sys-get-started">
-   Get Started
-</a>
-        <p class="sys-desc">Your leads respond to whoever gets back first. This system ensures you are always first —
-          calling, texting, and qualifying every lead within 60 seconds, 24/7, then booking them straight onto your
-          calendar.</p>
-        <div class="sys-included-label">WHAT'S INCLUDED</div>
-        <ul class="sys-features-full">
-          <li>
-            <span class="sys-feat-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
-            </span>
-            AI Voice Agent (24/7)
-          </li>
-          <li>
-            <span class="sys-feat-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-              </svg>
-            </span>
-            WhatsApp Automation
-          </li>
-          <li>
-            <span class="sys-feat-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-              </svg>
-            </span>
-            CRM Auto Sync
-          </li>
-          <li>
-            <span class="sys-feat-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-            </span>
-            Lead Qualification System
-          </li>
-          <li>
-            <span class="sys-feat-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                <line x1="16" y1="2" x2="16" y2="6" />
-                <line x1="8" y1="2" x2="8" y2="6" />
-                <line x1="3" y1="10" x2="21" y2="10" />
-              </svg>
-            </span>
-            Appointment Booking Engine
-          </li>
-        </ul>
-        <div class="sys-footer-row">
-          <button class="sys-scenario-btn">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <line x1="18" y1="20" x2="18" y2="10" />
-              <line x1="12" y1="20" x2="12" y2="4" />
-              <line x1="6" y1="20" x2="6" y2="14" />
+    <div class="system-card system-card-flagship reveal-up" style="--delay:0.2s">
+      <div class="system-card-header">
+        <span class="system-badge">SYSTEM 02</span>
+        <span class="flagship-badge">FLAGSHIP</span>
+      </div>
+      <h2 class="system-title">Deploy Ops Engine</h2>
+      <p class="system-sub">Eliminate repetitive work and scale operations.</p>
+      <div class="sys-price-big" id="price2">$1,200</div>
+      <a href="https://wa.me/6303310449?text=Hi%20I%20am%20interested%20in%20Deploy%20Ops%20Engine" target="_blank" class="sys-get-started">
+        Get Started
+      </a>
+      <p class="sys-desc">We audit your workflows and automate the repetitive tasks like client onboarding, data entry, and CRM updates so your team can focus on high-value work. Save 20–40 hours per week.</p>
+      <div class="sys-included-label">WHAT'S INCLUDED</div>
+      <ul class="sys-features-full">
+        <li>
+          <span class="sys-feat-icon flagship-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3" />
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
             </svg>
-            View Example Scenario
-          </button>
-          <p class="sys-bestfor">Best for: <span>Real Estate, Clinics, Service Businesses</span></p>
+          </span>
+          Workflow Mapping
+        </li>
+        <li>
+          <span class="sys-feat-icon flagship-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <path d="M8 21h8M12 17v4" />
+            </svg>
+          </span>
+          Business Process Automation
+        </li>
+        <li>
+          <span class="sys-feat-icon flagship-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg>
+          </span>
+          Custom n8n / Make Systems
+        </li>
+        <li>
+          <span class="sys-feat-icon flagship-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            </svg>
+          </span>
+          Team Productivity Flows
+        </li>
+        <li>
+          <span class="sys-feat-icon flagship-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+          </span>
+          AI-Powered Operations
+        </li>
+      </ul>
+      <div class="sys-footer-row">
+        <button class="sys-scenario-btn" onclick="toggleScenario('scenario2', this)">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <line x1="18" y1="20" x2="18" y2="10" />
+            <line x1="12" y1="20" x2="12" y2="4" />
+            <line x1="6" y1="20" x2="6" y2="14" />
+          </svg>
+          View Example Scenario
+        </button>
+        <p class="sys-bestfor">Best for: <span>Agencies, Legal, B2B Services</span></p>
+      </div>
+      <div id="scenario2" class="scenario-box">
+        <h4>Example Scenario: 12-Person Marketing Agency</h4>
+        <p>
+          <strong>The Leak:</strong><br>
+          A growing marketing agency signs 20–30 new clients every month. Account managers spend hours manually creating Slack channels, onboarding documents, CRM records, project folders and follow-up tasks. Client onboarding takes 2–3 days and slows down delivery.
+        </p>
+        <p>
+          <strong>The Fix:</strong><br>
+          Deploy a centralized AI Operations Engine using n8n. When a client pays, onboarding workflows trigger automatically — project folders are created, contracts generated, CRM records updated and the team notified instantly.
+        </p>
+        <p>
+          <strong>Business Impact:</strong><br>
+          The agency eliminates repetitive admin work, reduces onboarding time from days to minutes, and allows the team to focus entirely on client delivery and growth.
+        </p>
+        <div class="scenario-metrics">
+          <div>
+            <span>Manual Work</span>
+            <strong>180 hrs/mo</strong>
+          </div>
+          <div>
+            <span>After Automation</span>
+            <strong>12 hrs/mo</strong>
+          </div>
+          <div>
+            <span>Cost Saved</span>
+            <strong>₹6.4L/mo</strong>
+          </div>
         </div>
       </div>
-
-      <div class="system-card system-card-flagship reveal-up" style="--delay:0.2s">
-        <div class="system-card-header">
-          <span class="system-badge">SYSTEM 02</span>
-          <span class="flagship-badge">FLAGSHIP</span>
-        </div>
-        <h2 class="system-title">Deploy Ops Engine</h2>
-        <p class="system-sub">Eliminate repetitive work and scale operations.</p>
-        <div class="sys-price-big" id="price2">$1,200</div>
-        <a href="https://wa.me/6303310449?text=Hi%20I%20am%20interested%20in%20Deploy%20Ops%20Engine"
-   target="_blank"
-   class="sys-get-started">
-   Get Started
-</a>
-        <p class="sys-desc">We audit your workflows and automate the repetitive tasks like client onboarding, data
-          entry, and CRM updates so your team can focus on high-value work. Save 20–40 hours per week.</p>
-        <div class="sys-included-label">WHAT'S INCLUDED</div>
-        <ul class="sys-features-full">
-          <li>
-            <span class="sys-feat-icon flagship-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="3" />
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
-              </svg>
-            </span>
-            Workflow Mapping
-          </li>
-          <li>
-            <span class="sys-feat-icon flagship-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <rect x="2" y="3" width="20" height="14" rx="2" />
-                <path d="M8 21h8M12 17v4" />
-              </svg>
-            </span>
-            Business Process Automation
-          </li>
-          <li>
-            <span class="sys-feat-icon flagship-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <polyline points="16 18 22 12 16 6" />
-                <polyline points="8 6 2 12 8 18" />
-              </svg>
-            </span>
-            Custom n8n/Make Systems
-          </li>
-          <li>
-            <span class="sys-feat-icon flagship-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-              </svg>
-            </span>
-            Team Productivity Flows
-          </li>
-          <li>
-            <span class="sys-feat-icon flagship-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-              </svg>
-            </span>
-            AI-Powered Operations
-          </li>
-        </ul>
-        <div class="sys-footer-row">
-          <button class="sys-scenario-btn">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <line x1="18" y1="20" x2="18" y2="10" />
-              <line x1="12" y1="20" x2="12" y2="4" />
-              <line x1="6" y1="20" x2="6" y2="14" />
-            </svg>
-            View Example Scenario
-          </button>
-          <p class="sys-bestfor">Best for: <span>Agencies, Legal, B2B Services</span></p>
-        </div>
-      </div>
-
-      <div class="system-card reveal-up" style="--delay:0.3s">
-        <div class="system-card-header">
-          <span class="system-badge">SYSTEM 03</span>
-        </div>
-        <h2 class="system-title">Deploy Conversion Engine</h2>
-        <p class="system-sub">Turn visitors into conversations and customers.</p>
-        <div class="sys-price-big" id="price3">$599</div>
-        <a href="https://wa.me/6303310449?text=Hi%20I%20am%20interested%20in%20Deploy%20Conversion%20Engine"
-   target="_blank"
-   class="sys-get-started">
-   Get Started
-</a>
-        <p class="sys-desc">We replace outdated websites with landing systems built to capture intent. Connect forms
-          directly to WhatsApp and your CRM to drive immediate bookings and conversions.</p>
-        <div class="sys-included-label">WHAT'S INCLUDED</div>
-        <ul class="sys-features-full">
-          <li>
-            <span class="sys-feat-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <path d="M3 9h18M9 21V9" />
-              </svg>
-            </span>
-            High-Converting Landing Pages
-          </li>
-          <li>
-            <span class="sys-feat-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                <polyline points="14 2 14 8 20 8" />
-                <line x1="16" y1="13" x2="8" y2="13" />
-                <line x1="16" y1="17" x2="8" y2="17" />
-              </svg>
-            </span>
-            Smart Lead Capture Forms
-          </li>
-          <li>
-            <span class="sys-feat-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-              </svg>
-            </span>
-            WhatsApp Trigger Flows
-          </li>
-          <li>
-            <span class="sys-feat-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <polyline points="23 4 23 10 17 10" />
-                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
-              </svg>
-            </span>
-            Follow-Up Automation
-          </li>
-          <li>
-            <span class="sys-feat-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-              </svg>
-            </span>
-            Conversion Tracking
-          </li>
-        </ul>
-        <div class="sys-footer-row">
-          <button class="sys-scenario-btn">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <line x1="18" y1="20" x2="18" y2="10" />
-              <line x1="12" y1="20" x2="12" y2="4" />
-              <line x1="6" y1="20" x2="6" y2="14" />
-            </svg>
-            View Example Scenario
-          </button>
-          <p class="sys-bestfor">Best for: <span>Outdated sites, Low-conversion pages</span></p>
-        </div>
-      </div>
-
-      <div class="system-card reveal-up" style="--delay:0.4s">
-        <div class="system-card-header">
-          <span class="system-badge">SYSTEM 04</span>
-        </div>
-        <h2 class="system-title">Deploy Content Engine</h2>
-        <p class="system-sub">Build authority and generate inbound leads with AI.</p>
-        <div class="sys-price-big" id="price4">$499</div>
-        <a href="https://wa.me/6303310449?text=Hi%20I%20am%20interested%20in%20Deploy%20Content%20Engine"
-   target="_blank"
-   class="sys-get-started">
-   Get Started
-</a>
-        <p class="sys-desc">Establish yourself as an industry authority. This system automates content creation,
-          distribution, and engagement across LinkedIn and other platforms to generate consistent inbound leads.</p>
-        <div class="sys-included-label">WHAT'S INCLUDED</div>
-        <ul class="sys-features-full">
-          <li>
-            <span class="sys-feat-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-            </span>
-            LinkedIn Content Automation
-          </li>
-          <li>
-            <span class="sys-feat-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="11" cy="11" r="8" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-              </svg>
-            </span>
-            AI Content Research
-          </li>
-          <li>
-            <span class="sys-feat-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-              </svg>
-            </span>
-            Personal Brand System
-          </li>
-          <li>
-            <span class="sys-feat-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="18" cy="5" r="3" />
-                <circle cx="6" cy="12" r="3" />
-                <circle cx="18" cy="19" r="3" />
-                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-              </svg>
-            </span>
-            Multi-Platform Repurposing
-          </li>
-          <li>
-            <span class="sys-feat-icon">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-              </svg>
-            </span>
-            Engagement Automation
-          </li>
-        </ul>
-        <div class="sys-footer-row">
-          <button class="sys-scenario-btn">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <line x1="18" y1="20" x2="18" y2="10" />
-              <line x1="12" y1="20" x2="12" y2="4" />
-              <line x1="6" y1="20" x2="6" y2="14" />
-            </svg>
-            View Example Scenario
-          </button>
-          <p class="sys-bestfor">Best for: <span>Founders, Personal brands, B2B</span></p>
-        </div>
-      </div>
-
     </div>
 
-    <p class="rs-note">All fees cover build and more — platform tools, hosting, and third-party billed separately at
-      cost. Full estimate provided before any project starts.</p>
-
-    <div class="rs-solutions-cta reveal-up" style="margin-top:60px;">
-      <div class="rs-solutions-cta-inner">
-        <div class="rs-sol-text">
-          <h3>Not ready for a full system?</h3>
-          <p>Don't wait to fix what hurts most. Explore our library of 19 standalone solutions designed to solve
-            specific bottlenecks instantly.</p>
+    <div class="system-card reveal-up" style="--delay:0.3s">
+      <div class="system-card-header">
+        <span class="system-badge">SYSTEM 03</span>
+      </div>
+      <h2 class="system-title">Deploy Conversion Engine</h2>
+      <p class="system-sub">Turn visitors into conversations and customers.</p>
+      <div class="sys-price-big" id="price3">$599</div>
+      <a href="https://wa.me/6303310449?text=Hi%20I%20am%20interested%20in%20Deploy%20Conversion%20Engine" target="_blank" class="sys-get-started">
+        Get Started
+      </a>
+      <p class="sys-desc">We replace outdated websites with landing systems built to capture intent. Connect forms directly to WhatsApp and your CRM to drive immediate bookings and conversions.</p>
+      <div class="sys-included-label">WHAT'S INCLUDED</div>
+      <ul class="sys-features-full">
+        <li>
+          <span class="sys-feat-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M3 9h18M9 21V9" />
+            </svg>
+          </span>
+          High-Converting Landing Pages
+        </li>
+        <li>
+          <span class="sys-feat-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+          </span>
+          Smart Lead Capture Forms
+        </li>
+        <li>
+          <span class="sys-feat-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </span>
+          WhatsApp Trigger Flows
+        </li>
+        <li>
+          <span class="sys-feat-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <polyline points="23 4 23 10 17 10" />
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+            </svg>
+          </span>
+          Follow-Up Automation
+        </li>
+        <li>
+          <span class="sys-feat-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </span>
+          Conversion Tracking
+        </li>
+      </ul>
+      <div class="sys-footer-row">
+        <button class="sys-scenario-btn" onclick="toggleScenario('scenario3', this)">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <line x1="18" y1="20" x2="18" y2="10" />
+            <line x1="12" y1="20" x2="12" y2="4" />
+            <line x1="6" y1="20" x2="6" y2="14" />
+          </svg>
+          View Example Scenario
+        </button>
+        <p class="sys-bestfor">Best for: <span>Real Estate, EdTech, Service Businesses</span></p>
+      </div>
+      <div id="scenario3" class="scenario-box">
+        <h4>Example Scenario: Real Estate Developer</h4>
+        <p>
+          <strong>Conversion Bottleneck:</strong><br>
+          A real estate company receives 8,000+ website visitors monthly through paid advertising on Google and Meta but converts less than 2% into qualified leads — burning ad budget with no structured capture layer in place.
+        </p>
+        <p>
+          <strong>Conversion Deployment:</strong><br>
+          High-converting landing pages deployed per property segment, CRM integrations built, WhatsApp lead routing activated, and automated follow-up workflows triggered within 60 seconds of every form submission.
+        </p>
+        <p>
+          <strong>Business Impact:</strong><br>
+          Qualified inquiries increase significantly, lead leakage is eliminated, and booking rates improve — all without increasing ad spend by a single rupee.
+        </p>
+        <div class="scenario-metrics">
+          <div>
+            <span>Conversion Rate Before</span>
+            <strong>1.8%</strong>
+          </div>
+          <div>
+            <span>Conversion Rate After</span>
+            <strong>6.4%</strong>
+          </div>
+          <div>
+            <span>Additional Leads/mo</span>
+            <strong>+368</strong>
+          </div>
         </div>
-        <a href="solutions.html" class="btn-secondary" style="white-space:nowrap;flex-shrink:0;">Explore 19
-          Solutions</a>
       </div>
     </div>
-  </section>
 
-  <section class="cta-section" id="contact" style="margin-top:80px;">
-    <div class="cta-orb"></div>
-    <div class="section-container cta-inner reveal-up">
-      <h2 class="cta-heading">
-        Your revenue leak has a fix.<br>
-        Let's find it.
-      </h2>
-      <p class="cta-sub">Book a free 30-minute strategy call. We'll show you exactly where you can automate tasks and
-        capture more revenue.</p>
-      <div class="cta-btns">
-        <a href="contact.html" class="btn-cta-primary">Book Free Audit <span>→</span></a>
-        <a href="solutions.html" class="btn-cta-secondary">Explore the Solutions <span>→</span></a>
+    <div class="system-card reveal-up" style="--delay:0.4s">
+      <div class="system-card-header">
+        <span class="system-badge">SYSTEM 04</span>
       </div>
-      <p class="cta-note">No obligation. No pitch. Just clarity.</p>
+      <h2 class="system-title">Deploy Content Engine</h2>
+      <p class="system-sub">Build authority and generate inbound leads with AI.</p>
+      <div class="sys-price-big" id="price4">$499</div>
+      <a href="https://wa.me/6303310449?text=Hi%20I%20am%20interested%20in%20Deploy%20Content%20Engine" target="_blank" class="sys-get-started">
+        Get Started
+      </a>
+      <p class="sys-desc">Establish yourself as an industry authority. This system automates content creation, distribution, and engagement across LinkedIn and other platforms to generate consistent inbound leads.</p>
+      <div class="sys-included-label">WHAT'S INCLUDED</div>
+      <ul class="sys-features-full">
+        <li>
+          <span class="sys-feat-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </span>
+          LinkedIn Content Automation
+        </li>
+        <li>
+          <span class="sys-feat-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </span>
+          AI Content Research
+        </li>
+        <li>
+          <span class="sys-feat-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </span>
+          Personal Brand System
+        </li>
+        <li>
+          <span class="sys-feat-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="18" cy="5" r="3" />
+              <circle cx="6" cy="12" r="3" />
+              <circle cx="18" cy="19" r="3" />
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+            </svg>
+          </span>
+          Multi-Platform Repurposing
+        </li>
+        <li>
+          <span class="sys-feat-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </span>
+          Engagement Automation
+        </li>
+      </ul>
+      <div class="sys-footer-row">
+        <button class="sys-scenario-btn" onclick="toggleScenario('scenario4', this)">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <line x1="18" y1="20" x2="18" y2="10" />
+            <line x1="12" y1="20" x2="12" y2="4" />
+            <line x1="6" y1="20" x2="6" y2="14" />
+          </svg>
+          View Example Scenario
+        </button>
+        <p class="sys-bestfor">Best for: <span>Founders, Personal Brands, B2B</span></p>
+      </div>
+      <div id="scenario4" class="scenario-box">
+        <h4>Example Scenario: B2B Founder Personal Brand</h4>
+        <p>
+          <strong>Growth Bottleneck:</strong><br>
+          A B2B founder spends 20+ hours weekly writing and posting content manually across platforms — generating minimal inbound pipeline and no compounding brand authority to show for it.
+        </p>
+        <p>
+          <strong>Content Deployment:</strong><br>
+          AI-powered research, content creation, scheduling and multi-platform distribution systems deployed. LinkedIn authority engine activates a consistent posting cadence with engagement workflows running autonomously in the background.
+        </p>
+        <p>
+          <strong>Business Impact:</strong><br>
+          Founder reclaims 80+ hours per month while compounding brand visibility drives consistent inbound deal flow — without any outbound effort or manual publishing.
+        </p>
+        <div class="scenario-metrics">
+          <div>
+            <span>Content Output</span>
+            <strong>60 Posts/mo</strong>
+          </div>
+          <div>
+            <span>Inbound Leads</span>
+            <strong>+120/mo</strong>
+          </div>
+          <div>
+            <span>Revenue Pipeline</span>
+            <strong>₹4L/mo</strong>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
 
+  </div>
+
+  <p class="rs-note">All fees cover build and more — platform tools, hosting, and third-party billed separately at cost. Full estimate provided before any project starts.</p>
+
+  <div class="rs-solutions-cta reveal-up" style="margin-top:60px;">
+    <div class="rs-solutions-cta-inner">
+      <div class="rs-sol-text">
+        <h3>Not ready for a full system?</h3>
+        <p>Don't wait to fix what hurts most. Explore our library of 19 standalone solutions designed to solve specific bottlenecks instantly.</p>
+      </div>
+      <a href="solutions.html" class="btn-secondary" style="white-space:nowrap;flex-shrink:0;">Explore 19 Solutions</a>
+    </div>
+  </div>
+
+</section>
+
+<section class="cta-section" id="contact" style="margin-top:80px;">
+  <div class="cta-orb"></div>
+  <div class="section-container cta-inner reveal-up">
+    <h2 class="cta-heading">
+      Your revenue leak has a fix.<br>
+      Let's find it.
+    </h2>
+    <p class="cta-sub">Book a free 30-minute strategy call. We'll show you exactly where you can automate tasks and capture more revenue.</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn-cta-primary">Book Free Audit <span>→</span></a>
+      <a href="solutions.html" class="btn-cta-secondary">Explore the Solutions <span>→</span></a>
+    </div>
+    <p class="cta-note">No obligation. No pitch. Just clarity.</p>
+  </div>
+</section>
+  
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-brand">
@@ -833,10 +997,70 @@
 
     toggleOne.addEventListener('click', () => setMode('one'));
     toggleMgmt.addEventListener('click', () => setMode('mgmt'));
+
+    function toggleScenario(id) {
+      const box = document.getElementById(id);
+
+      if (box.classList.contains('active')) {
+        box.classList.remove('active');
+      } else {
+        box.classList.add('active');
+      }
+    }
+    function toggleScenario(id, btn) {
+
+  const currentBox = document.getElementById(id);
+
+  const allBoxes = document.querySelectorAll('.scenario-box');
+  const allButtons = document.querySelectorAll('.sys-scenario-btn');
+
+  // Close all other scenario boxes
+  allBoxes.forEach(box => {
+    if (box.id !== id) {
+      box.classList.remove('active');
+    }
+  });
+
+  // Reset all other buttons
+  allButtons.forEach(button => {
+    if (button !== btn) {
+      button.innerHTML = `
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <line x1="18" y1="20" x2="18" y2="10" />
+          <line x1="12" y1="20" x2="12" y2="4" />
+          <line x1="6" y1="20" x2="6" y2="14" />
+        </svg>
+        View Example Scenario
+      `;
+    }
+  });
+
+  // Toggle current scenario
+  currentBox.classList.toggle('active');
+
+  if (currentBox.classList.contains('active')) {
+    btn.innerHTML = `
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <line x1="6" y1="12" x2="18" y2="12" />
+      </svg>
+      Hide Scenario
+    `;
+  } else {
+    btn.innerHTML = `
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <line x1="18" y1="20" x2="18" y2="10" />
+        <line x1="12" y1="20" x2="12" y2="4" />
+        <line x1="6" y1="20" x2="6" y2="14" />
+      </svg>
+      View Example Scenario
+    `;
+  }
+
+}
   </script>
   <!-- <script src="/js/script.js"></script> -->
   <script src="/js/animations.js"></script>
-  
+
 </body>
 
 </html>
