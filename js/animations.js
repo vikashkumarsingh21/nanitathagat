@@ -984,3 +984,81 @@ function initNetworkDiagram() {
     init();
   }
 })();
+
+
+
+/* THEME TOGGLE */
+
+const themeToggle =
+document.getElementById("themeToggle");
+
+if(themeToggle){
+
+    const savedTheme =
+    localStorage.getItem("theme");
+
+    if(savedTheme){
+        document.documentElement.setAttribute(
+            "data-theme",
+            savedTheme
+        );
+    }
+
+    updateThemeIcon();
+
+    themeToggle.addEventListener(
+        "click",
+        () => {
+
+            const current =
+            document.documentElement.getAttribute(
+                "data-theme"
+            );
+
+            const newTheme =
+            current === "light"
+            ? "dark"
+            : "light";
+
+            document.documentElement.setAttribute(
+                "data-theme",
+                newTheme
+            );
+
+            localStorage.setItem(
+                "theme",
+                newTheme
+            );
+
+            updateThemeIcon();
+        }
+    );
+
+    function updateThemeIcon(){
+
+        const current =
+        document.documentElement.getAttribute(
+            "data-theme"
+        );
+
+        themeToggle.innerHTML =
+        current === "light"
+        ? "☀️"
+        : "🌙";
+    }
+}
+
+if(!localStorage.getItem("theme")){
+
+    const prefersDark =
+    window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    document.documentElement.setAttribute(
+      "data-theme",
+      prefersDark
+      ? "dark"
+      : "light"
+    );
+}
